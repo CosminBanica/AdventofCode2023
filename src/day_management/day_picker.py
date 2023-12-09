@@ -6,6 +6,8 @@ from src.day2.day2_solver import Day2Solver
 from src.day3.day3_solver import Day3Solver
 from src.day4.day4_solver import Day4Solver
 from src.day5.day5_solver import Day5Solver
+from src.day6.day6_solver import Day6Solver
+from src.day7.day7_solver import Day7Solver
 
 day_solver_map = {
     1: Day1Solver,
@@ -13,6 +15,8 @@ day_solver_map = {
     3: Day3Solver,
     4: Day4Solver,
     5: Day5Solver,
+    6: Day6Solver,
+    7: Day7Solver,
 }
 
 

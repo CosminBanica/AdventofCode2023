@@ -9,7 +9,7 @@
 
 ## Development
 ### Pylint:
-```pylint .\main.py .\config\* .\src\*```
+```pylint main.py config/ src/```
 
 ### Black formatter:
-```black .\main.py .\config\* .\src\*```
+```black main.py config/ src/```
