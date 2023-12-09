@@ -6,6 +6,7 @@ import argparse
 import sys
 from config import constants
 from src.day_management.day_picker import get_day_solver
+from src.day_management.day_files_generator import generate_day
 
 
 def get_args():
@@ -23,6 +24,20 @@ def get_args():
         action="store_true",
         default=False,
     )
+    parser.add_argument(
+        "-g",
+        "--generate",
+        help="generate the files for the day",
+        action="store_true",
+        default=False,
+    )
+    parser.add_argument(
+        "-n",
+        "--name",
+        help="the name of the day's problem",
+        type=str,
+        default="",
+    )
 
     args = parser.parse_args()
     return args
@@ -30,6 +45,10 @@ def get_args():
 
 if __name__ == "__main__":
     ARGS = get_args()
+
+    if ARGS.generate:
+        generate_day(ARGS.day, ARGS.name)
+        sys.exit(0)
 
     INPUT_PATH = ""
     if ARGS.test:
