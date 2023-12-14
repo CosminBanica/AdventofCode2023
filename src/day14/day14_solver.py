@@ -28,13 +28,13 @@ class Day14Solver(DaySolver):
         """
         Rolls all 'O' rocks as far north as possible
         """
-        for i in range(len(self.grid)):
+        for i, row in enumerate(self.grid):
             for j in range(len(self.grid[i])):
-                if self.grid[i][j] == 'O':
+                if row[j] == "O":
                     k = i - 1
-                    while k >= 0 and self.grid[k][j] == '.':
-                        self.grid[k][j] = 'O'
-                        self.grid[k + 1][j] = '.'
+                    while k >= 0 and self.grid[k][j] == ".":
+                        self.grid[k][j] = "O"
+                        self.grid[k + 1][j] = "."
                         k -= 1
 
     def roll_rocks_south(self):
@@ -43,11 +43,11 @@ class Day14Solver(DaySolver):
         """
         for i in range(len(self.grid) - 1, -1, -1):
             for j in range(len(self.grid[i])):
-                if self.grid[i][j] == 'O':
+                if self.grid[i][j] == "O":
                     k = i + 1
-                    while k < len(self.grid) and self.grid[k][j] == '.':
-                        self.grid[k][j] = 'O'
-                        self.grid[k - 1][j] = '.'
+                    while k < len(self.grid) and self.grid[k][j] == ".":
+                        self.grid[k][j] = "O"
+                        self.grid[k - 1][j] = "."
                         k += 1
 
     def roll_rocks_east(self):
@@ -55,12 +55,12 @@ class Day14Solver(DaySolver):
         Rolls all 'O' rocks as far east as possible
         """
         for j in range(len(self.grid[0]) - 1, -1, -1):
-            for i in range(len(self.grid)):
-                if self.grid[i][j] == 'O':
+            for i, row in enumerate(self.grid):
+                if row[j] == "O":
                     k = j + 1
-                    while k < len(self.grid[0]) and self.grid[i][k] == '.':
-                        self.grid[i][k] = 'O'
-                        self.grid[i][k - 1] = '.'
+                    while k < len(self.grid[0]) and row[k] == ".":
+                        self.grid[i][k] = "O"
+                        self.grid[i][k - 1] = "."
                         k += 1
 
     def roll_rocks_west(self):
@@ -68,12 +68,12 @@ class Day14Solver(DaySolver):
         Rolls all 'O' rocks as far west as possible
         """
         for j in range(len(self.grid[0])):
-            for i in range(len(self.grid)):
-                if self.grid[i][j] == 'O':
+            for i, row in enumerate(self.grid):
+                if row[j] == "O":
                     k = j - 1
-                    while k >= 0 and self.grid[i][k] == '.':
-                        self.grid[i][k] = 'O'
-                        self.grid[i][k + 1] = '.'
+                    while k >= 0 and row[k] == ".":
+                        self.grid[i][k] = "O"
+                        self.grid[i][k + 1] = "."
                         k -= 1
 
     def roll_rocks(self):
@@ -97,9 +97,9 @@ class Day14Solver(DaySolver):
         self.roll_rocks_north()
 
         # Then, for each rock, calculate its load and add it to the sum
-        for i in range(len(self.grid)):
-            for j in range(len(self.grid[i])):
-                if self.grid[i][j] == 'O':
+        for i, row in enumerate(self.grid):
+            for _, tile in enumerate(row):
+                if tile == "O":
                     rock_load_sum += len(self.grid) - i
 
         self.grid = deepcopy(self.initial_grid)
@@ -135,9 +135,9 @@ class Day14Solver(DaySolver):
         for i in range(nr_iterations):
             self.roll_rocks()
 
-        for i in range(len(self.grid)):
-            for j in range(len(self.grid[i])):
-                if self.grid[i][j] == 'O':
+        for i, row in enumerate(self.grid):
+            for _, tile in enumerate(row):
+                if tile == "O":
                     rock_load_sum += len(self.grid) - i
 
         return rock_load_sum
