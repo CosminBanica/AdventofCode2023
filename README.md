@@ -22,3 +22,6 @@
 
 ### Black formatter:
 ```black main.py config/ src/```
+
+### Possible improvements
+* A lot of problems have a map as input; I should write a map/grid class to make it easier to work with
