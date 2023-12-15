@@ -160,7 +160,9 @@ class Day13Solver(DaySolver):
                         smudges += 1
                     if smudges > 1:
                         break
-                if smudges <= 1 and is_horizontal_line_of_reflection_with_smudge(pattern, i):
+                if smudges <= 1 and is_horizontal_line_of_reflection_with_smudge(
+                    pattern, i
+                ):
                     horizontal_lines_of_reflection_indices.append(i + 1)
                     found_horizontal_line_of_reflection = True
                     break
@@ -175,7 +177,9 @@ class Day13Solver(DaySolver):
                             smudges += 1
                         if smudges > 1:
                             break
-                    if smudges <= 1 and is_vertical_line_of_reflection_with_smudge(pattern, i):
+                    if smudges <= 1 and is_vertical_line_of_reflection_with_smudge(
+                        pattern, i
+                    ):
                         vertical_lines_of_reflection_indices.append(i + 1)
                         break
 

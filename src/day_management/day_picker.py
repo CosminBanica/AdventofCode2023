@@ -1,6 +1,7 @@
 """
 This module contains the DayPicker class.
 """
+from src.day15.day15_solver import Day15Solver
 from src.day14.day14_solver import Day14Solver
 from src.day13.day13_solver import Day13Solver
 from src.day12.day12_solver import Day12Solver
@@ -17,6 +18,7 @@ from src.day2.day2_solver import Day2Solver
 from src.day1.day1_solver import Day1Solver
 
 day_solver_map = {
+    15: Day15Solver,
     14: Day14Solver,
     13: Day13Solver,
     12: Day12Solver,
