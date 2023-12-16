@@ -1,19 +1,8 @@
 """
 Solver for day 10: Pipe Maze
 """
-from enum import Enum
 from src.day_management.day_solver import DaySolver
-
-
-class Direction(Enum):
-    """
-    Enum for directions
-    """
-
-    UP = 0
-    DOWN = 1
-    LEFT = 2
-    RIGHT = 3
+from src.utils.enums import Direction
 
 
 class Day10Solver(DaySolver):
